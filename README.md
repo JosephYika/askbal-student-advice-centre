@@ -54,9 +54,11 @@ This is a React-based web application for the ASK BAL Student Advice Centre at D
 
 ## User Preferences
 
-Preferred communication style: Simple, everyday language.
+- **Communication style**: Simple, everyday language
+- **Documentation**: Always use README.md for all project documentation and user preferences (never create replit.md)
+- **File management**: Maintain clean project structure with standard conventions
 
-**Note**: This README.md serves as the single source of truth for project documentation and preferences. All project information has been consolidated here from the previous replit.md file.
+**Note**: This README.md serves as the single source of truth for project documentation and preferences. All project information and user preferences are documented here following standard industry practices.
 
 ## System Architecture
 
