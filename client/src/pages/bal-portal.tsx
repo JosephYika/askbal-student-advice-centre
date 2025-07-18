@@ -369,57 +369,150 @@ export default function BALPortal() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="bg-[#990033] text-white">
-        <div className="container mx-auto px-4 py-12">
-          <div className="text-center max-w-4xl mx-auto">
-            <Link href="/">
-              <Button variant="ghost" size="sm" className="text-white/80 hover:bg-white/10 mb-6">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Home
-              </Button>
-            </Link>
-            <h1 className="text-4xl font-bold mb-3">BAL Portal</h1>
-            <p className="text-lg mb-6 text-white/90">
-              Faculty of Business & Law Student Services
-            </p>
-            <p className="text-base text-white/80 max-w-2xl mx-auto leading-relaxed">
-              Your comprehensive hub for student services, academic support, and administrative processes. 
-              Find everything you need to succeed in your studies at DMU.
-            </p>
+      {/* Header */}
+      <header className="bg-[#990033] shadow-lg border-b border-[#990033] sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <Link href="/">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="text-white hover:text-gray-200 hover:bg-white/10 transition-all duration-300 group focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#990033]"
+                >
+                  <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform duration-300" />
+                  Back to Home
+                </Button>
+              </Link>
+              <div className="h-8 w-px bg-white/30" />
+              <h1 className="text-2xl font-bold text-white">BAL Portal</h1>
+            </div>
+            <div className="hidden md:flex items-center space-x-4">
+              <Badge variant="outline" className="text-white border-white/40 bg-white/10">
+                36 Services
+              </Badge>
+              <Badge variant="outline" className="text-white border-white/40 bg-white/10">
+                5 Categories
+              </Badge>
+            </div>
           </div>
         </div>
-      </div>
-      
-      {/* Stats Section */}
-      <div className="bg-[#2B5F57] text-white">
-        <div className="container mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="text-center">
-              <div className="text-2xl font-bold mb-1">36</div>
-              <div className="text-white/80 text-sm">Services Available</div>
+      </header>
+
+      {/* Main Hero Section */}
+      <div className="bg-[#2B5F57] rounded-2xl mx-4 sm:mx-6 lg:mx-8 mt-8 p-8 text-center">
+        <h2 className="text-3xl font-bold text-white mb-6">
+          Student Services Hub
+        </h2>
+        <p className="text-lg text-gray-100 max-w-3xl mx-auto leading-relaxed mb-8">
+          Your comprehensive hub for student services, academic support, and administrative processes. 
+          Find everything you need to succeed in your studies at the Faculty of Business & Law.
+        </p>
+        
+        {/* Quick Category Buttons */}
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 max-w-5xl mx-auto">
+          <Button
+            variant="outline"
+            className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 p-6 h-auto text-center transition-all duration-300 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2B5F57]"
+            onClick={() => setSelectedCategory('academic')}
+          >
+            <div className="flex flex-col items-center space-y-2">
+              <BookOpen className="h-6 w-6 text-white" />
+              <div>
+                <h3 className="font-semibold text-white text-sm">Academic</h3>
+                <p className="text-xs text-white/70 mt-1">Support</p>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold mb-1">5</div>
-              <div className="text-white/80 text-sm">Service Categories</div>
+          </Button>
+          
+          <Button
+            variant="outline"
+            className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 p-6 h-auto text-center transition-all duration-300 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2B5F57]"
+            onClick={() => setSelectedCategory('support')}
+          >
+            <div className="flex flex-col items-center space-y-2">
+              <Users className="h-6 w-6 text-white" />
+              <div>
+                <h3 className="font-semibold text-white text-sm">Support</h3>
+                <p className="text-xs text-white/70 mt-1">Services</p>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold mb-1">24/7</div>
-              <div className="text-white/80 text-sm">Online Access</div>
+          </Button>
+          
+          <Button
+            variant="outline"
+            className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 p-6 h-auto text-center transition-all duration-300 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2B5F57]"
+            onClick={() => setSelectedCategory('finance')}
+          >
+            <div className="flex flex-col items-center space-y-2">
+              <CreditCard className="h-6 w-6 text-white" />
+              <div>
+                <h3 className="font-semibold text-white text-sm">Finance</h3>
+                <p className="text-xs text-white/70 mt-1">& Funding</p>
+              </div>
             </div>
-          </div>
+          </Button>
+          
+          <Button
+            variant="outline"
+            className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 p-6 h-auto text-center transition-all duration-300 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2B5F57]"
+            onClick={() => setSelectedCategory('student-life')}
+          >
+            <div className="flex flex-col items-center space-y-2">
+              <Heart className="h-6 w-6 text-white" />
+              <div>
+                <h3 className="font-semibold text-white text-sm">Student</h3>
+                <p className="text-xs text-white/70 mt-1">Life</p>
+              </div>
+            </div>
+          </Button>
+          
+          <Button
+            variant="outline"
+            className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 p-6 h-auto text-center transition-all duration-300 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2B5F57]"
+            onClick={() => setSelectedCategory('admin')}
+          >
+            <div className="flex flex-col items-center space-y-2">
+              <FileText className="h-6 w-6 text-white" />
+              <div>
+                <h3 className="font-semibold text-white text-sm">Admin</h3>
+                <p className="text-xs text-white/70 mt-1">Services</p>
+              </div>
+            </div>
+          </Button>
         </div>
       </div>
 
-      {/* Navigation Bar */}
-      <div className="border-b border-gray-200 bg-white shadow-sm sticky top-0 z-40">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <Filter className="h-4 w-4 text-[#990033]" />
-              <span className="text-gray-700 font-medium">Filter Services:</span>
+
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+
+        {/* Search and Filter Section */}
+        <div className="mb-8">
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
+            <div className="relative w-full md:w-96">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Input
+                type="text"
+                placeholder="Search services..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10"
+              />
             </div>
             <div className="flex items-center space-x-2">
+              <Button 
+                variant="outline" 
+                onClick={() => {
+                  setSearchTerm('');
+                  setSelectedCategory('all');
+                }}
+                className="border-[#990033] text-[#990033] hover:bg-[#990033] hover:text-white"
+              >
+                Clear All
+              </Button>
               <Button 
                 variant={viewMode === 'grid' ? 'default' : 'ghost'} 
                 size="sm"
@@ -439,48 +532,19 @@ export default function BALPortal() {
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="container mx-auto px-4 py-8">
-
-
-        {/* Search and Filters */}
-        <div className="mb-8 space-y-4">
-          <div className="flex flex-col sm:flex-row gap-4">
-            <div className="flex-1">
-              <Input
-                placeholder="Search services..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="bg-white border-gray-300 text-gray-900 placeholder-gray-500 h-12"
-              />
-            </div>
-            <div className="flex items-center space-x-2">
-              <Filter className="h-4 w-4 text-[#990033]" />
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="bg-white border border-gray-300 text-gray-900 rounded-md px-4 py-3 text-sm h-12"
-              >
-                <option value="all">All Categories</option>
-                {Object.entries(categoryConfig).map(([key, config]) => (
-                  <option key={key} value={key}>{config.label}</option>
-                ))}
-              </select>
-            </div>
+        {/* Results Section */}
+        <div>
+          <div className="mb-6 text-center">
+            <p className="text-gray-600">
+              Showing {filteredTiles.length} of {portalTiles.length} services
+              {selectedCategory !== 'all' && (
+                <span className="ml-2 text-[#990033] font-medium">
+                  in {categoryConfig[selectedCategory as keyof typeof categoryConfig]?.label}
+                </span>
+              )}
+            </p>
           </div>
-        </div>
-
-        {/* Main Content */}
-        <Tabs value={selectedCategory} className="w-full">
-          <TabsList className="grid w-full grid-cols-6 bg-white border border-gray-200">
-            <TabsTrigger value="all" onClick={() => setSelectedCategory('all')} className="data-[state=active]:bg-[#990033] data-[state=active]:text-white">All</TabsTrigger>
-            <TabsTrigger value="academic" onClick={() => setSelectedCategory('academic')} className="data-[state=active]:bg-[#990033] data-[state=active]:text-white">Academic</TabsTrigger>
-            <TabsTrigger value="support" onClick={() => setSelectedCategory('support')} className="data-[state=active]:bg-[#2B5F57] data-[state=active]:text-white">Support</TabsTrigger>
-            <TabsTrigger value="finance" onClick={() => setSelectedCategory('finance')} className="data-[state=active]:bg-[#990033] data-[state=active]:text-white">Finance</TabsTrigger>
-            <TabsTrigger value="student-life" onClick={() => setSelectedCategory('student-life')} className="data-[state=active]:bg-[#2B5F57] data-[state=active]:text-white">Student Life</TabsTrigger>
-            <TabsTrigger value="admin" onClick={() => setSelectedCategory('admin')} className="data-[state=active]:bg-gray-700 data-[state=active]:text-white">Admin</TabsTrigger>
-          </TabsList>
 
           <div className="mt-8">
             {viewMode === 'grid' ? (
@@ -505,7 +569,7 @@ export default function BALPortal() {
               </div>
             )}
           </div>
-        </Tabs>
+        </div>
 
         {filteredTiles.length === 0 && (
           <div className="text-center py-12">
@@ -533,7 +597,7 @@ export default function BALPortal() {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 }
