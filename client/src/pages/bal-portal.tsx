@@ -319,11 +319,11 @@ const portalTiles: PortalTile[] = [
 ];
 
 const categoryConfig = {
-  academic: { label: 'Academic', color: 'bg-red-900/20 border-red-900/30', textColor: 'text-red-100' },
-  support: { label: 'Support Services', color: 'bg-green-900/20 border-green-900/30', textColor: 'text-green-100' },
-  finance: { label: 'Finance', color: 'bg-blue-900/20 border-blue-900/30', textColor: 'text-blue-100' },
-  'student-life': { label: 'Student Life', color: 'bg-purple-900/20 border-purple-900/30', textColor: 'text-purple-100' },
-  admin: { label: 'Administration', color: 'bg-orange-900/20 border-orange-900/30', textColor: 'text-orange-100' }
+  academic: { label: 'Academic', color: 'bg-[#990033]/5 border-[#990033]/20', textColor: 'text-[#990033]' },
+  support: { label: 'Support Services', color: 'bg-[#2B5F57]/5 border-[#2B5F57]/20', textColor: 'text-[#2B5F57]' },
+  finance: { label: 'Finance', color: 'bg-[#990033]/5 border-[#990033]/20', textColor: 'text-[#990033]' },
+  'student-life': { label: 'Student Life', color: 'bg-[#2B5F57]/5 border-[#2B5F57]/20', textColor: 'text-[#2B5F57]' },
+  admin: { label: 'Administration', color: 'bg-gray-50 border-gray-200', textColor: 'text-gray-700' }
 };
 
 export default function BALPortal() {
@@ -345,33 +345,33 @@ export default function BALPortal() {
     const categoryStyle = categoryConfig[tile.category];
     
     return (
-      <Card className={`group hover:shadow-lg transition-all duration-200 cursor-pointer border-gray-700 bg-gray-800/50 backdrop-blur-sm ${categoryStyle.color}`}>
+      <Card className="group hover:shadow-xl transition-all duration-300 cursor-pointer bg-white border border-gray-200 hover:border-[#990033]/20 transform hover:scale-105">
         <CardHeader className="pb-3">
           <div className="flex items-start justify-between">
             <div className="flex items-center space-x-3">
-              <div className="p-2 rounded-lg bg-red-900/20 border border-red-900/30">
-                <IconComponent className="h-5 w-5 text-red-200" />
+              <div className="p-3 rounded-lg bg-[#990033]/10 border border-[#990033]/20">
+                <IconComponent className="h-6 w-6 text-[#990033]" />
               </div>
               <div className="flex-1">
-                <CardTitle className="text-sm font-semibold text-gray-100 group-hover:text-white transition-colors">
+                <CardTitle className="text-lg font-semibold text-gray-900 group-hover:text-[#990033] transition-colors">
                   {tile.title}
                 </CardTitle>
               </div>
             </div>
             {tile.priority === 'high' && (
-              <Badge variant="secondary" className="bg-red-900/30 text-red-200 border-red-900/50">
+              <Badge variant="secondary" className="bg-[#2B5F57] text-white">
                 Priority
               </Badge>
             )}
           </div>
         </CardHeader>
         <CardContent className="pt-0">
-          <CardDescription className="text-gray-300 text-xs leading-relaxed">
+          <CardDescription className="text-gray-600 text-sm leading-relaxed">
             {tile.description}
           </CardDescription>
           {tile.external && (
             <div className="mt-3">
-              <Badge variant="outline" className="text-xs border-gray-600 text-gray-400">
+              <Badge variant="outline" className="text-xs border-[#2B5F57] text-[#2B5F57]">
                 External Link
               </Badge>
             </div>
@@ -382,21 +382,21 @@ export default function BALPortal() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-red-900">
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="border-b border-gray-700 bg-gray-900/80 backdrop-blur-sm sticky top-0 z-40">
-        <div className="container mx-auto px-4 py-4">
+      <div className="border-b border-gray-200 bg-white shadow-sm sticky top-0 z-40">
+        <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <Link href="/">
-                <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white">
+                <Button variant="ghost" size="sm" className="text-[#990033] hover:bg-[#990033]/10">
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Back to Home
                 </Button>
               </Link>
               <div>
-                <h1 className="text-2xl font-bold text-white">BAL Portal</h1>
-                <p className="text-gray-400 text-sm">Faculty of Business & Law Student Services</p>
+                <h1 className="text-3xl font-bold text-[#990033]">BAL Portal</h1>
+                <p className="text-gray-600 text-sm">Faculty of Business & Law Student Services</p>
               </div>
             </div>
             <div className="flex items-center space-x-2">
@@ -404,7 +404,7 @@ export default function BALPortal() {
                 variant={viewMode === 'grid' ? 'default' : 'ghost'} 
                 size="sm"
                 onClick={() => setViewMode('grid')}
-                className="text-gray-300"
+                className={viewMode === 'grid' ? 'bg-[#990033] text-white' : 'text-gray-600'}
               >
                 <Grid className="h-4 w-4" />
               </Button>
@@ -412,7 +412,7 @@ export default function BALPortal() {
                 variant={viewMode === 'list' ? 'default' : 'ghost'} 
                 size="sm"
                 onClick={() => setViewMode('list')}
-                className="text-gray-300"
+                className={viewMode === 'list' ? 'bg-[#990033] text-white' : 'text-gray-600'}
               >
                 <List className="h-4 w-4" />
               </Button>
@@ -424,11 +424,11 @@ export default function BALPortal() {
       <div className="container mx-auto px-4 py-8">
         {/* Quick Actions */}
         <div className="mb-8">
-          <h2 className="text-xl font-semibold text-white mb-4 flex items-center">
-            <BookOpen className="h-5 w-5 mr-2 text-red-400" />
+          <h2 className="text-2xl font-semibold text-[#990033] mb-6 flex items-center">
+            <BookOpen className="h-6 w-6 mr-3 text-[#990033]" />
             Quick Actions
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {quickActionTiles.map(tile => (
               <div key={tile.id} className="transform hover:scale-105 transition-transform">
                 <TileCard tile={tile} />
@@ -445,15 +445,15 @@ export default function BALPortal() {
                 placeholder="Search services..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400"
+                className="bg-white border-gray-300 text-gray-900 placeholder-gray-500 h-12"
               />
             </div>
             <div className="flex items-center space-x-2">
-              <Filter className="h-4 w-4 text-gray-400" />
+              <Filter className="h-4 w-4 text-[#990033]" />
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="bg-gray-800 border border-gray-700 text-white rounded-md px-3 py-2 text-sm"
+                className="bg-white border border-gray-300 text-gray-900 rounded-md px-4 py-3 text-sm h-12"
               >
                 <option value="all">All Categories</option>
                 {Object.entries(categoryConfig).map(([key, config]) => (
@@ -466,18 +466,18 @@ export default function BALPortal() {
 
         {/* Main Content */}
         <Tabs value={selectedCategory} className="w-full">
-          <TabsList className="grid w-full grid-cols-6 bg-gray-800 border-gray-700">
-            <TabsTrigger value="all" onClick={() => setSelectedCategory('all')}>All</TabsTrigger>
-            <TabsTrigger value="academic" onClick={() => setSelectedCategory('academic')}>Academic</TabsTrigger>
-            <TabsTrigger value="support" onClick={() => setSelectedCategory('support')}>Support</TabsTrigger>
-            <TabsTrigger value="finance" onClick={() => setSelectedCategory('finance')}>Finance</TabsTrigger>
-            <TabsTrigger value="student-life" onClick={() => setSelectedCategory('student-life')}>Student Life</TabsTrigger>
-            <TabsTrigger value="admin" onClick={() => setSelectedCategory('admin')}>Admin</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-6 bg-white border border-gray-200">
+            <TabsTrigger value="all" onClick={() => setSelectedCategory('all')} className="data-[state=active]:bg-[#990033] data-[state=active]:text-white">All</TabsTrigger>
+            <TabsTrigger value="academic" onClick={() => setSelectedCategory('academic')} className="data-[state=active]:bg-[#990033] data-[state=active]:text-white">Academic</TabsTrigger>
+            <TabsTrigger value="support" onClick={() => setSelectedCategory('support')} className="data-[state=active]:bg-[#2B5F57] data-[state=active]:text-white">Support</TabsTrigger>
+            <TabsTrigger value="finance" onClick={() => setSelectedCategory('finance')} className="data-[state=active]:bg-[#990033] data-[state=active]:text-white">Finance</TabsTrigger>
+            <TabsTrigger value="student-life" onClick={() => setSelectedCategory('student-life')} className="data-[state=active]:bg-[#2B5F57] data-[state=active]:text-white">Student Life</TabsTrigger>
+            <TabsTrigger value="admin" onClick={() => setSelectedCategory('admin')} className="data-[state=active]:bg-gray-700 data-[state=active]:text-white">Admin</TabsTrigger>
           </TabsList>
 
-          <div className="mt-6">
+          <div className="mt-8">
             {viewMode === 'grid' ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredTiles.map(tile => (
                   <div key={tile.id} className="transform hover:scale-105 transition-transform">
                     <TileCard tile={tile} />
@@ -485,7 +485,7 @@ export default function BALPortal() {
                 ))}
               </div>
             ) : (
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {filteredTiles.map(tile => (
                   <div key={tile.id} className="transform hover:scale-[1.02] transition-transform">
                     <TileCard tile={tile} />
@@ -498,11 +498,11 @@ export default function BALPortal() {
 
         {filteredTiles.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-400">No services found matching your search criteria.</p>
+            <p className="text-gray-600">No services found matching your search criteria.</p>
             <Button 
               variant="outline" 
               onClick={() => { setSearchTerm(''); setSelectedCategory('all'); }}
-              className="mt-4 border-gray-600 text-gray-300 hover:bg-gray-800"
+              className="mt-4 border-[#990033] text-[#990033] hover:bg-[#990033] hover:text-white"
             >
               Clear Filters
             </Button>
@@ -510,15 +510,15 @@ export default function BALPortal() {
         )}
 
         {/* Footer */}
-        <div className="mt-16 pt-8 border-t border-gray-700">
+        <div className="mt-16 pt-8 border-t border-gray-200">
           <div className="text-center">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-600 text-sm">
               Need help? Contact the ASK BAL Student Advice Centre
             </p>
             <div className="flex justify-center space-x-4 mt-2">
-              <Link href="/contact" className="text-red-400 hover:text-red-300 text-sm">Contact Us</Link>
-              <span className="text-gray-600">|</span>
-              <Link href="/appointments" className="text-red-400 hover:text-red-300 text-sm">Book Appointment</Link>
+              <Link href="/#contact" className="text-[#990033] hover:text-[#2B5F57] text-sm font-medium">Contact Us</Link>
+              <span className="text-gray-400">|</span>
+              <Link href="/appointments" className="text-[#990033] hover:text-[#2B5F57] text-sm font-medium">Book Appointment</Link>
             </div>
           </div>
         </div>
