@@ -340,39 +340,27 @@ export default function BALPortal() {
 
   const TileCard = ({ tile }: { tile: PortalTile }) => {
     const IconComponent = tile.icon;
-    const categoryStyle = categoryConfig[tile.category];
     
     return (
-      <Card className="group hover:shadow-xl transition-all duration-300 cursor-pointer bg-white border border-gray-200 hover:border-[#990033]/20 transform hover:scale-105 h-full">
-        <CardHeader className="pb-3">
-          <div className="flex items-start justify-between min-h-[80px]">
-            <div className="flex items-center space-x-3">
-              <div className="p-3 rounded-lg bg-[#990033]/10 border border-[#990033]/20 flex-shrink-0">
-                <IconComponent className="h-6 w-6 text-[#990033]" />
-              </div>
-              <div className="flex-1">
-                <CardTitle className="text-lg font-semibold text-gray-900 group-hover:text-[#990033] transition-colors line-clamp-2">
-                  {tile.title}
-                </CardTitle>
-              </div>
+      <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer bg-white border border-gray-200 hover:border-[#990033]/30 transform hover:scale-105 h-32 w-full">
+        <CardContent className="p-4 h-full flex flex-col items-center justify-center text-center">
+          <div className="mb-3">
+            <div className="p-2 rounded-lg bg-[#990033]/10 border border-[#990033]/20 inline-flex">
+              <IconComponent className="h-5 w-5 text-[#990033]" />
             </div>
-            {tile.priority === 'high' && (
-              <Badge variant="secondary" className="bg-[#2B5F57] text-white flex-shrink-0">
-                Priority
-              </Badge>
-            )}
           </div>
-        </CardHeader>
-        <CardContent className="pt-0 flex-1">
-          <CardDescription className="text-gray-600 text-sm leading-relaxed min-h-[60px]">
-            {tile.description}
-          </CardDescription>
+          <CardTitle className="text-sm font-semibold text-gray-900 group-hover:text-[#990033] transition-colors leading-tight">
+            {tile.title}
+          </CardTitle>
+          {tile.priority === 'high' && (
+            <Badge variant="secondary" className="bg-[#2B5F57] text-white text-xs mt-2">
+              Priority
+            </Badge>
+          )}
           {tile.external && (
-            <div className="mt-3">
-              <Badge variant="outline" className="text-xs border-[#2B5F57] text-[#2B5F57]">
-                External Link
-              </Badge>
-            </div>
+            <Badge variant="outline" className="text-xs border-[#2B5F57] text-[#2B5F57] mt-1">
+              External
+            </Badge>
           )}
         </CardContent>
       </Card>
@@ -382,8 +370,8 @@ export default function BALPortal() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-[#990033] to-[#2B5F57] text-white">
-        <div className="container mx-auto px-4 py-16">
+      <div className="bg-[#990033] text-white">
+        <div className="container mx-auto px-4 py-12">
           <div className="text-center max-w-4xl mx-auto">
             <Link href="/">
               <Button variant="ghost" size="sm" className="text-white/80 hover:bg-white/10 mb-6">
@@ -391,29 +379,33 @@ export default function BALPortal() {
                 Back to Home
               </Button>
             </Link>
-            <h1 className="text-5xl font-bold mb-4">BAL Portal</h1>
-            <p className="text-xl mb-6 text-white/90">
+            <h1 className="text-4xl font-bold mb-3">BAL Portal</h1>
+            <p className="text-lg mb-6 text-white/90">
               Faculty of Business & Law Student Services
             </p>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base text-white/80 max-w-2xl mx-auto leading-relaxed">
               Your comprehensive hub for student services, academic support, and administrative processes. 
               Find everything you need to succeed in your studies at DMU.
             </p>
-            
-            {/* Quick Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-3xl mx-auto">
-              <div className="text-center">
-                <div className="text-3xl font-bold mb-2">36</div>
-                <div className="text-white/80">Services Available</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold mb-2">5</div>
-                <div className="text-white/80">Service Categories</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold mb-2">24/7</div>
-                <div className="text-white/80">Online Access</div>
-              </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Stats Section */}
+      <div className="bg-[#2B5F57] text-white">
+        <div className="container mx-auto px-4 py-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div className="text-center">
+              <div className="text-2xl font-bold mb-1">36</div>
+              <div className="text-white/80 text-sm">Services Available</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold mb-1">5</div>
+              <div className="text-white/80 text-sm">Service Categories</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold mb-1">24/7</div>
+              <div className="text-white/80 text-sm">Online Access</div>
             </div>
           </div>
         </div>
@@ -492,20 +484,24 @@ export default function BALPortal() {
 
           <div className="mt-8">
             {viewMode === 'grid' ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredTiles.map(tile => (
-                  <div key={tile.id} className="transform hover:scale-105 transition-transform flex">
-                    <TileCard tile={tile} />
-                  </div>
-                ))}
+              <div className="max-w-6xl mx-auto">
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                  {filteredTiles.map(tile => (
+                    <div key={tile.id} className="transform hover:scale-105 transition-transform">
+                      <TileCard tile={tile} />
+                    </div>
+                  ))}
+                </div>
               </div>
             ) : (
-              <div className="space-y-4">
-                {filteredTiles.map(tile => (
-                  <div key={tile.id} className="transform hover:scale-[1.02] transition-transform">
-                    <TileCard tile={tile} />
-                  </div>
-                ))}
+              <div className="max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {filteredTiles.map(tile => (
+                    <div key={tile.id} className="transform hover:scale-[1.02] transition-transform">
+                      <TileCard tile={tile} />
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>

@@ -53,6 +53,8 @@ This is a React-based web application for the ASK BAL Student Advice Centre at D
 - ✅ **Search Engine Prevention**: Added robots.txt and meta tags to prevent Google indexing
 - ✅ **BAL Portal Page**: Comprehensive student services portal with 36 categorized tiles, hero section with stats, and consistent DMU design
 - ✅ **Portal Design Updates**: Removed quick actions, uniform card sizing, improved hero section with gradient and service statistics
+- ✅ **Card Redesign**: Smaller, centered cards with icons and titles only, removed descriptions for cleaner look
+- ✅ **Hero Section Refinement**: Separated burgundy and forest green sections instead of gradient for better color distinction
 
 ## User Preferences
 
