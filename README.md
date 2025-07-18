@@ -1,8 +1,8 @@
-# Student Advice Centre Application
+# ASK BAL Student Advice Centre - De Montfort University
 
 ## Overview
 
-This is a React-based web application for the ASK BAL Student Advice Centre at De Montfort University's Faculty of Business & Law. The application serves as a digital presence for the student advice centre, providing information about services, contact details, and resources for students.
+This is a React-based web application for the ASK BAL Student Advice Centre at De Montfort University's Faculty of Business & Law. The application serves as a digital presence for the student advice centre, featuring a modern responsive design with DMU branding, 3D interactive elements, and comprehensive student support information.
 
 ## Recent Changes (December 2024)
 
@@ -31,15 +31,30 @@ This is a React-based web application for the ASK BAL Student Advice Centre at D
 - Fine-tuned hero section typography with custom line height (1.3) for optimal spacing
 
 ### Deployment Success (January 2025)
-- Successfully deployed to Vercel at https://business-law-portal.vercel.app/
+- Successfully deployed to Vercel at https://askbal-student-advice-centre.vercel.app/
 - Implemented proper build configuration with simplified vercel.json
 - Resolved deployment issues with correct buildCommand and outputDirectory settings
 - All features working: 3D cubes, responsive design, DMU branding, and Hugh Aston imagery
 
+## Recent Changes: Latest modifications with dates
+
+### July 18, 2025
+- ✅ **Completed School Finder Page**: Full implementation with 30 programmes across 3 schools
+- ✅ **Applied DMU Brand Colors**: Consistent #820628 burgundy and #2B5F57 forest green
+- ✅ **Enhanced School Cards**: Different background opacity variations for visual distinction
+- ✅ **Resolved Git Conflicts**: Cleaned all conflict markers from React components
+- ✅ **Cross-Platform Compatibility**: Fixed Windows development environment with cross-env
+- ✅ **Cleaned Project Structure**: Removed unnecessary files, keeping only essential deployment files
+- ✅ **Restored Authentic DMU Images**: Replaced placeholder images with official DMU photos and branding
+- ✅ **Removed GitHub Dependencies**: Cleaned project references for standalone Replit deployment
+- ✅ **Disconnected Remote Origin**: Removed GitHub remote connection for independent development
+- ✅ **Fresh Git Repository**: Created clean repository without bloated history for GitHub push
+- ✅ **Successful Vercel Deployment**: Live website deployed at https://askbal-student-advice-centre.vercel.app/
+- ✅ **Search Engine Prevention**: Added robots.txt and meta tags to prevent Google indexing
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
-Development workflow: Build pages in Replit with focus on responsive design and accessibility.
 
 **Note**: This README.md serves as the single source of truth for project documentation and preferences. All project information has been consolidated here from the previous replit.md file.
 

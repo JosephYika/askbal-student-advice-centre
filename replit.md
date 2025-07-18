@@ -1,8 +1,8 @@
-# replit.md
+# ASK BAL Student Advice Centre - Replit Guide
 
 ## Overview
 
-This is a React-based web application for the ASK BAL Student Advice Centre at De Montfort University's Faculty of Business & Law. The application serves as a digital presence for the student advice centre, featuring a modern responsive design with DMU branding, 3D interactive elements, and comprehensive student support information.
+This is a React-based web application for the ASK BAL Student Advice Centre at De Montfort University's Faculty of Business & Law. The application serves as a student support portal with information about academic guidance, assessment deferrals, and various student services. The application features a modern, responsive design with DMU brand colors and includes interactive 3D elements.
 
 ## User Preferences
 
@@ -10,142 +10,103 @@ Preferred communication style: Simple, everyday language.
 
 ## System Architecture
 
-### Frontend Architecture
+The application follows a modern full-stack architecture with a clear separation between frontend and backend components:
 
-The application follows a modern React architecture with:
-
-- **React 18** with TypeScript for type safety and modern React features
-- **Vite** as the build tool for fast development and optimized production builds
-- **Wouter** for lightweight client-side routing
-- **TanStack Query** for server state management and API interactions
-- **Tailwind CSS** for utility-first styling with custom DMU brand colors
-- **shadcn/ui** component library for consistent, accessible UI components
-
-### Backend Architecture
-
-The backend is built with:
-
-- **Express.js** server with TypeScript support
-- **Drizzle ORM** for database operations (currently using memory storage with PostgreSQL configuration ready)
-- **RESTful API** structure with `/api` prefix for all routes
-- **Vite middleware integration** for seamless development experience
+- **Frontend**: React with TypeScript using Vite as the build tool
+- **Backend**: Express.js server with TypeScript
+- **Database**: PostgreSQL with Drizzle ORM
+- **Styling**: Tailwind CSS with shadcn/ui components
+- **Deployment**: Configured for Vercel
 
 ## Key Components
 
-### Core Application Structure
+### Frontend Architecture
+- **Framework**: React 18 with TypeScript
+- **Build Tool**: Vite for fast development and optimized builds
+- **Routing**: Wouter for lightweight client-side routing
+- **State Management**: TanStack Query for server state management
+- **UI Framework**: shadcn/ui components built on Radix UI primitives
+- **Styling**: Tailwind CSS with custom DMU brand colors (#990033 burgundy, #2B5F57 forest green)
 
-1. **App.tsx** - Root component with providers and routing setup
-2. **Home.tsx** - Main single-page application containing all sections
-3. **ProgrammeFinder.tsx** - Dedicated page for school/programme discovery
+### Backend Architecture
+- **Server**: Express.js with TypeScript
+- **Database ORM**: Drizzle ORM with PostgreSQL
+- **API Structure**: RESTful API with `/api` prefix
+- **Session Management**: Uses connect-pg-simple for session storage
+- **Development**: Hot reload with Vite middleware integration
 
-### UI Components
+### Database Schema
+The database uses PostgreSQL with the following structure:
+- **Users table**: Basic user authentication with id, username, password fields
+- **Schema location**: `shared/schema.ts` using Drizzle ORM definitions
+- **Migrations**: Located in `./migrations` directory
 
-1. **Hero Section** - Split-screen design with DMU branding and 3D cube text effect
-2. **Header** - Responsive navigation with DMU logo and mobile menu
-3. **About Section** - Information about the Student Advice Centre services
-4. **Services Section** - Grid layout showing support categories
-5. **Contact Section** - Multiple contact methods with authentic DMU staff images
-6. **Footer** - Site links and additional contact information
-
-### 3D Interactive Elements
-
-- **CubeText Component** - 3D animated "2025" text with DMU burgundy gradient
-- Responsive scaling and positioning across devices
-- CSS transform3d for hardware-accelerated animations
-
-### Design System
-
-- **DMU Brand Colors**: Primary burgundy (#990033) with variations
-- **Typography**: Open Sans and Poppins fonts
-- **Responsive Breakpoints**: Mobile-first approach with tablet and desktop optimizations
-- **Accessibility**: WCAG 2.1 compliant with proper ARIA labels and keyboard navigation
+### Authentication & Authorization
+- Basic user authentication system with username/password
+- Session-based authentication using PostgreSQL session store
+- User model supports future expansion for role-based access
 
 ## Data Flow
 
-### Client-Side State Management
+1. **Client Requests**: React components make API calls through TanStack Query
+2. **API Layer**: Express.js routes handle requests with proper error handling
+3. **Data Layer**: Drizzle ORM manages database operations
+4. **Response Flow**: Data flows back through the same layers with proper error handling
 
-1. **React Query** manages server state and API caching
-2. **Local Component State** for UI interactions and form handling
-3. **Custom Hooks** for reusable stateful logic (mobile detection, toast notifications)
-
-### API Communication
-
-1. **RESTful Endpoints** under `/api` prefix
-2. **JSON Request/Response** format with proper error handling
-3. **Credential Inclusion** for session management
-4. **Request Logging** middleware for development debugging
-
-### Storage Layer
-
-- **Memory Storage** implementation for development
-- **PostgreSQL** configuration ready via Drizzle ORM
-- **User Schema** defined with Zod validation
-- **Migration Support** through Drizzle Kit
+The application uses a request/response pattern with:
+- JSON API endpoints for data operations
+- Client-side routing for navigation
+- Server-side session management for authentication
 
 ## External Dependencies
 
 ### Core Dependencies
-
-- **React Ecosystem**: React, React DOM, React Hook Form
-- **Routing**: Wouter for lightweight routing
-- **State Management**: TanStack Query for server state
-- **Styling**: Tailwind CSS with PostCSS
-- **UI Components**: Radix UI primitives via shadcn/ui
-- **Database**: Drizzle ORM with Neon Database serverless support
-
-### Development Tools
-
-- **TypeScript** for type safety across frontend and backend
-- **Vite** for development server and build optimization
-- **ESBuild** for server bundling
-- **Cross-env** for environment variable management
+- **React Ecosystem**: React, React-DOM, React-Hook-Form
+- **UI Components**: Radix UI primitives, shadcn/ui components
+- **Database**: @neondatabase/serverless, Drizzle ORM
+- **Styling**: Tailwind CSS, class-variance-authority
+- **Development**: Vite, TypeScript, ESBuild
 
 ### Asset Management
+- Images stored in `attached_assets/` directory
+- Vite handles asset optimization and bundling
+- DMU branding images and building photos included
 
-- **Static Assets**: Images stored in `attached_assets/` directory
-- **DMU Branding**: Authentic university building images and staff photos
-- **Logo Assets**: Official DMU logo in SVG format
+### Build Tools
+- **Development**: Vite dev server with hot reload
+- **Production**: Vite build with Express.js server bundle
+- **Cross-platform**: Uses cross-env for Windows compatibility
 
 ## Deployment Strategy
 
-### Production Build
+### Vercel Deployment
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist/public`
+- **API Routes**: Proxied through Vercel's serverless functions
+- **Static Files**: Served from build output directory
 
-1. **Frontend Build**: Vite builds React application to `dist/public`
-2. **Server Build**: ESBuild bundles Express server to `dist/index.js`
-3. **Static Assets**: Served from build output directory
+### Environment Setup
+- **Development**: Uses NODE_ENV=development with Vite dev server
+- **Production**: NODE_ENV=production with compiled Express server
+- **Database**: Requires DATABASE_URL environment variable for PostgreSQL connection
 
-### Hosting Configuration
+### File Structure
+```
+├── client/          # React frontend
+│   ├── src/         # Source components and pages
+│   └── public/      # Static assets
+├── server/          # Express backend
+├── shared/          # Shared types and schemas
+├── attached_assets/ # DMU images and branding
+└── dist/           # Build output
+```
 
-- **Vercel Deployment**: Configured with `vercel.json` for seamless deployment
-- **Build Command**: `npm run build` handles both frontend and backend
-- **Output Directory**: `dist/public` for static assets
-- **Environment Variables**: Database URL and other secrets via platform configuration
+The application is designed for easy deployment to Vercel with automatic builds and serverless function support. The monorepo structure keeps frontend and backend code organized while sharing common types and schemas.
 
-### Development Workflow
-
-1. **Local Development**: `npm run dev` starts both Vite dev server and Express backend
-2. **Database Management**: `npm run db:push` for schema synchronization
-3. **Type Checking**: `npm run check` for TypeScript validation
-4. **Hot Reload**: Vite HMR for frontend, nodemon equivalent for backend changes
-
-### Performance Optimizations
-
-- **Code Splitting**: Vite automatic chunking for optimal loading
-- **CSS Optimization**: Tailwind purging and PostCSS processing
-- **Bundle Analysis**: Source maps and build output analysis available
-
-## Recent Changes: Latest modifications with dates
-
-### July 18, 2025
-- ✅ **Completed School Finder Page**: Full implementation with 30 programmes across 3 schools
-- ✅ **Applied DMU Brand Colors**: Consistent #820628 burgundy and #2B5F57 forest green
-- ✅ **Enhanced School Cards**: Different background opacity variations for visual distinction
-- ✅ **Resolved Git Conflicts**: Cleaned all conflict markers from React components
-- ✅ **Cross-Platform Compatibility**: Fixed Windows development environment with cross-env
-- ✅ **Cleaned Project Structure**: Removed unnecessary files, keeping only essential deployment files
-- ✅ **Restored Authentic DMU Images**: Replaced placeholder images with official DMU photos and branding
-- ✅ **Removed GitHub Dependencies**: Cleaned project references for standalone Replit deployment
-- ✅ **Disconnected Remote Origin**: Removed GitHub remote connection for independent development
-- ✅ **Fresh Git Repository**: Created clean repository without bloated history for GitHub push
-- ✅ **Successful Vercel Deployment**: Live website deployed at https://askbal-student-advice-centre.vercel.app/
-- ✅ **Search Engine Prevention**: Added robots.txt and meta tags to prevent Google indexing
+### Key Features
+- Responsive design optimized for mobile and desktop
+- Interactive 3D "2025" cube animation in hero section
+- DMU brand compliance with official colors and imagery
+- Programme finder tool for student guidance
+- Contact information and service descriptions
+- Accessibility features with proper ARIA labels
