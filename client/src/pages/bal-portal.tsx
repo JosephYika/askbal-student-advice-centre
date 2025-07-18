@@ -338,35 +338,33 @@ export default function BALPortal() {
     return matchesSearch && matchesCategory;
   });
 
-  const quickActionTiles = portalTiles.filter(tile => tile.quickAction);
-
   const TileCard = ({ tile }: { tile: PortalTile }) => {
     const IconComponent = tile.icon;
     const categoryStyle = categoryConfig[tile.category];
     
     return (
-      <Card className="group hover:shadow-xl transition-all duration-300 cursor-pointer bg-white border border-gray-200 hover:border-[#990033]/20 transform hover:scale-105">
+      <Card className="group hover:shadow-xl transition-all duration-300 cursor-pointer bg-white border border-gray-200 hover:border-[#990033]/20 transform hover:scale-105 h-full">
         <CardHeader className="pb-3">
-          <div className="flex items-start justify-between">
+          <div className="flex items-start justify-between min-h-[80px]">
             <div className="flex items-center space-x-3">
-              <div className="p-3 rounded-lg bg-[#990033]/10 border border-[#990033]/20">
+              <div className="p-3 rounded-lg bg-[#990033]/10 border border-[#990033]/20 flex-shrink-0">
                 <IconComponent className="h-6 w-6 text-[#990033]" />
               </div>
               <div className="flex-1">
-                <CardTitle className="text-lg font-semibold text-gray-900 group-hover:text-[#990033] transition-colors">
+                <CardTitle className="text-lg font-semibold text-gray-900 group-hover:text-[#990033] transition-colors line-clamp-2">
                   {tile.title}
                 </CardTitle>
               </div>
             </div>
             {tile.priority === 'high' && (
-              <Badge variant="secondary" className="bg-[#2B5F57] text-white">
+              <Badge variant="secondary" className="bg-[#2B5F57] text-white flex-shrink-0">
                 Priority
               </Badge>
             )}
           </div>
         </CardHeader>
-        <CardContent className="pt-0">
-          <CardDescription className="text-gray-600 text-sm leading-relaxed">
+        <CardContent className="pt-0 flex-1">
+          <CardDescription className="text-gray-600 text-sm leading-relaxed min-h-[60px]">
             {tile.description}
           </CardDescription>
           {tile.external && (
@@ -383,21 +381,51 @@ export default function BALPortal() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="border-b border-gray-200 bg-white shadow-sm sticky top-0 z-40">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Link href="/">
-                <Button variant="ghost" size="sm" className="text-[#990033] hover:bg-[#990033]/10">
-                  <ArrowLeft className="h-4 w-4 mr-2" />
-                  Back to Home
-                </Button>
-              </Link>
-              <div>
-                <h1 className="text-3xl font-bold text-[#990033]">BAL Portal</h1>
-                <p className="text-gray-600 text-sm">Faculty of Business & Law Student Services</p>
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-[#990033] to-[#2B5F57] text-white">
+        <div className="container mx-auto px-4 py-16">
+          <div className="text-center max-w-4xl mx-auto">
+            <Link href="/">
+              <Button variant="ghost" size="sm" className="text-white/80 hover:bg-white/10 mb-6">
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Back to Home
+              </Button>
+            </Link>
+            <h1 className="text-5xl font-bold mb-4">BAL Portal</h1>
+            <p className="text-xl mb-6 text-white/90">
+              Faculty of Business & Law Student Services
+            </p>
+            <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+              Your comprehensive hub for student services, academic support, and administrative processes. 
+              Find everything you need to succeed in your studies at DMU.
+            </p>
+            
+            {/* Quick Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-3xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold mb-2">36</div>
+                <div className="text-white/80">Services Available</div>
               </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold mb-2">5</div>
+                <div className="text-white/80">Service Categories</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold mb-2">24/7</div>
+                <div className="text-white/80">Online Access</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Navigation Bar */}
+      <div className="border-b border-gray-200 bg-white shadow-sm sticky top-0 z-40">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <Filter className="h-4 w-4 text-[#990033]" />
+              <span className="text-gray-700 font-medium">Filter Services:</span>
             </div>
             <div className="flex items-center space-x-2">
               <Button 
@@ -422,20 +450,7 @@ export default function BALPortal() {
       </div>
 
       <div className="container mx-auto px-4 py-8">
-        {/* Quick Actions */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold text-[#990033] mb-6 flex items-center">
-            <BookOpen className="h-6 w-6 mr-3 text-[#990033]" />
-            Quick Actions
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {quickActionTiles.map(tile => (
-              <div key={tile.id} className="transform hover:scale-105 transition-transform">
-                <TileCard tile={tile} />
-              </div>
-            ))}
-          </div>
-        </div>
+
 
         {/* Search and Filters */}
         <div className="mb-8 space-y-4">
@@ -479,7 +494,7 @@ export default function BALPortal() {
             {viewMode === 'grid' ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredTiles.map(tile => (
-                  <div key={tile.id} className="transform hover:scale-105 transition-transform">
+                  <div key={tile.id} className="transform hover:scale-105 transition-transform flex">
                     <TileCard tile={tile} />
                   </div>
                 ))}
