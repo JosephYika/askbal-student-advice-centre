@@ -1,8 +1,8 @@
-# ASK BAL Student Advice Centre - Replit Guide
+# ASK BAL Student Advice Centre - Replit Development Guide
 
 ## Overview
 
-This is a React-based web application for the ASK BAL Student Advice Centre at De Montfort University's Faculty of Business & Law. The application serves as a student support portal with information about academic guidance, assessment deferrals, and various student services. The application features a modern, responsive design with DMU brand colors and includes interactive 3D elements.
+This is a React-based web application for the ASK BAL Student Advice Centre at De Montfort University's Faculty of Business & Law. The application serves as a digital student support platform with modern UI components, 3D interactive elements, and comprehensive student services information.
 
 ## User Preferences
 
@@ -10,103 +10,98 @@ Preferred communication style: Simple, everyday language.
 
 ## System Architecture
 
-The application follows a modern full-stack architecture with a clear separation between frontend and backend components:
-
-- **Frontend**: React with TypeScript using Vite as the build tool
-- **Backend**: Express.js server with TypeScript
-- **Database**: PostgreSQL with Drizzle ORM
-- **Styling**: Tailwind CSS with shadcn/ui components
-- **Deployment**: Configured for Vercel
-
-## Key Components
-
 ### Frontend Architecture
-- **Framework**: React 18 with TypeScript
-- **Build Tool**: Vite for fast development and optimized builds
+- **Framework**: React 18 with TypeScript for type safety and modern development
 - **Routing**: Wouter for lightweight client-side routing
-- **State Management**: TanStack Query for server state management
-- **UI Framework**: shadcn/ui components built on Radix UI primitives
-- **Styling**: Tailwind CSS with custom DMU brand colors (#990033 burgundy, #2B5F57 forest green)
+- **UI Components**: Radix UI primitives with shadcn/ui components for consistent, accessible design
+- **Styling**: Tailwind CSS with custom DMU brand colors (#820628 burgundy, #2B5F57 forest green)
+- **State Management**: TanStack Query for server state management and data fetching
+- **Build Tool**: Vite for fast development and optimized production builds
 
 ### Backend Architecture
-- **Server**: Express.js with TypeScript
-- **Database ORM**: Drizzle ORM with PostgreSQL
-- **API Structure**: RESTful API with `/api` prefix
-- **Session Management**: Uses connect-pg-simple for session storage
-- **Development**: Hot reload with Vite middleware integration
+- **Server**: Express.js with TypeScript for API endpoints
+- **Database**: PostgreSQL with Drizzle ORM for type-safe database operations
+- **Storage**: Modular storage interface with in-memory implementation (ready for PostgreSQL upgrade)
+- **Authentication**: Session-based authentication using connect-pg-simple
 
-### Database Schema
-The database uses PostgreSQL with the following structure:
-- **Users table**: Basic user authentication with id, username, password fields
-- **Schema location**: `shared/schema.ts` using Drizzle ORM definitions
-- **Migrations**: Located in `./migrations` directory
+### Key Components
 
-### Authentication & Authorization
-- Basic user authentication system with username/password
-- Session-based authentication using PostgreSQL session store
-- User model supports future expansion for role-based access
+#### Core Application Structure
+- **Single Page Application**: Main content served through `/` route with smooth scrolling navigation
+- **Programme Finder**: Separate `/programme-finder` route for school and programme discovery
+- **Component Architecture**: Modular components (Header, Hero, About, Services, Contact, Footer)
 
-## Data Flow
+#### Interactive Elements
+- **3D Cube Text Animation**: Custom CubeText component with hardware-accelerated CSS transforms
+- **Responsive Design**: Mobile-first approach with breakpoint-specific optimizations
+- **DMU Branding**: Consistent university colors and imagery throughout
 
-1. **Client Requests**: React components make API calls through TanStack Query
-2. **API Layer**: Express.js routes handle requests with proper error handling
-3. **Data Layer**: Drizzle ORM manages database operations
-4. **Response Flow**: Data flows back through the same layers with proper error handling
+#### UI Component System
+- **Design System**: shadcn/ui components with Radix UI primitives
+- **Accessibility**: ARIA labels, semantic HTML, keyboard navigation support
+- **Form Handling**: React Hook Form with Zod validation
+- **Toast Notifications**: Radix Toast system for user feedback
 
-The application uses a request/response pattern with:
-- JSON API endpoints for data operations
-- Client-side routing for navigation
-- Server-side session management for authentication
+### Data Flow
 
-## External Dependencies
+#### Frontend Data Management
+1. **Query Client**: TanStack Query handles API requests and caching
+2. **API Layer**: Centralized API request functions with error handling
+3. **Component State**: Local state for UI interactions, server state for data
 
-### Core Dependencies
-- **React Ecosystem**: React, React-DOM, React-Hook-Form
-- **UI Components**: Radix UI primitives, shadcn/ui components
-- **Database**: @neondatabase/serverless, Drizzle ORM
-- **Styling**: Tailwind CSS, class-variance-authority
-- **Development**: Vite, TypeScript, ESBuild
+#### Backend Request Flow
+1. **Express Middleware**: Request parsing, logging, and error handling
+2. **Route Registration**: Modular route system with `/api` prefix
+3. **Storage Layer**: Abstracted storage interface for database operations
+4. **Response Handling**: JSON responses with proper error codes
 
-### Asset Management
-- Images stored in `attached_assets/` directory
-- Vite handles asset optimization and bundling
-- DMU branding images and building photos included
+### External Dependencies
 
-### Build Tools
-- **Development**: Vite dev server with hot reload
-- **Production**: Vite build with Express.js server bundle
-- **Cross-platform**: Uses cross-env for Windows compatibility
+#### Core Dependencies
+- **React Ecosystem**: React, React DOM, React Hook Form
+- **UI Framework**: Radix UI components, Lucide icons
+- **Database**: Drizzle ORM, @neondatabase/serverless for PostgreSQL
+- **Development**: Vite, TypeScript, ESLint, Tailwind CSS
 
-## Deployment Strategy
+#### Production Dependencies
+- **Build Tools**: esbuild for server bundling, Vite for client assets
+- **Cross-Platform**: cross-env for environment variable handling
+- **Database Migration**: Drizzle Kit for schema management
 
-### Vercel Deployment
-- **Build Command**: `npm run build`
-- **Output Directory**: `dist/public`
-- **API Routes**: Proxied through Vercel's serverless functions
-- **Static Files**: Served from build output directory
+### Deployment Strategy
 
-### Environment Setup
-- **Development**: Uses NODE_ENV=development with Vite dev server
-- **Production**: NODE_ENV=production with compiled Express server
-- **Database**: Requires DATABASE_URL environment variable for PostgreSQL connection
+#### Vercel Configuration
+- **Build Command**: `npm run build` - builds both client and server
+- **Output Directory**: `dist/public` for static assets
+- **API Routes**: Serverless functions through `/api/*` rewrites
+- **Framework**: None (custom configuration for Express + Vite setup)
 
-### File Structure
-```
-├── client/          # React frontend
-│   ├── src/         # Source components and pages
-│   └── public/      # Static assets
-├── server/          # Express backend
-├── shared/          # Shared types and schemas
-├── attached_assets/ # DMU images and branding
-└── dist/           # Build output
-```
+#### Environment Setup
+- **Development**: Vite dev server with Express API proxy
+- **Production**: Static files served with Express API backend
+- **Database**: PostgreSQL connection via DATABASE_URL environment variable
 
-The application is designed for easy deployment to Vercel with automatic builds and serverless function support. The monorepo structure keeps frontend and backend code organized while sharing common types and schemas.
+#### Asset Management
+- **Images**: Stored in `attached_assets` directory with Vite alias
+- **Static Files**: Served from `dist/public` in production
+- **Font Loading**: Google Fonts (Open Sans) with preconnect optimization
 
-### Key Features
-- Responsive design optimized for mobile and desktop
-- Interactive 3D "2025" cube animation in hero section
-- DMU brand compliance with official colors and imagery
-- Programme finder tool for student guidance
-- Contact information and service descriptions
-- Accessibility features with proper ARIA labels
+## Development Notes
+
+### Recent Enhancements
+- **Programme Finder**: Complete implementation with 30+ academic programmes across 3 schools
+- **3D Animations**: Interactive cube text effects in hero section
+- **Mobile Optimization**: Responsive design with 60vh mobile hero height
+- **DMU Branding**: Authentic university imagery and color schemes
+
+### Code Organization
+- **TypeScript Configuration**: Strict mode with path aliases for clean imports
+- **Component Structure**: Atomic design with reusable UI components
+- **Styling Approach**: Utility-first CSS with custom CSS variables for theming
+- **Build Optimization**: Separate client and server builds with proper output directories
+
+### Future Considerations
+- The application is configured for PostgreSQL but currently uses in-memory storage
+- Database schema is defined and ready for migration when PostgreSQL is provisioned
+- All UI components are fully accessible and keyboard navigable
+- Error boundaries and loading states are implemented for better user experience
