@@ -1,0 +1,41 @@
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="200" fill="#f8f9fa"/>
+  
+  <!-- Top bar -->
+  <rect width="400" height="30" fill="#0078d4"/>
+  <text x="10" y="20" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Microsoft Outlook</text>
+  
+  <!-- Navigation bar -->
+  <rect y="30" width="400" height="25" fill="#106ebe"/>
+  <text x="10" y="47" fill="white" font-family="Arial, sans-serif" font-size="10">Home</text>
+  <text x="60" y="47" fill="white" font-family="Arial, sans-serif" font-size="10">Send / Receive</text>
+  <text x="130" y="47" fill="white" font-family="Arial, sans-serif" font-size="10">Folder</text>
+  <text x="180" y="47" fill="white" font-family="Arial, sans-serif" font-size="10">View</text>
+  
+  <!-- Email composition area -->
+  <rect x="10" y="65" width="380" height="125" fill="white" stroke="#d1d5db" stroke-width="1"/>
+  
+  <!-- Email headers -->
+  <text x="20" y="80" fill="#374151" font-family="Arial, sans-serif" font-size="10" font-weight="bold">To:</text>
+  <text x="45" y="80" fill="#0078d4" font-family="Arial, sans-serif" font-size="10">askbalstudentadvice@dmu.ac.uk</text>
+  
+  <text x="20" y="95" fill="#374151" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Subject:</text>
+  <text x="65" y="95" fill="#374151" font-family="Arial, sans-serif" font-size="10">Student Advice Request</text>
+  
+  <!-- Email body -->
+  <rect x="20" y="105" width="360" height="75" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+  
+  <text x="25" y="120" fill="#374151" font-family="Arial, sans-serif" font-size="9">Dear Student Advice Team,</text>
+  <text x="25" y="135" fill="#374151" font-family="Arial, sans-serif" font-size="9">I am writing to request guidance regarding my</text>
+  <text x="25" y="150" fill="#374151" font-family="Arial, sans-serif" font-size="9">academic progress and available support services.</text>
+  <text x="25" y="165" fill="#374151" font-family="Arial, sans-serif" font-size="9">Best regards,</text>
+  
+  <!-- DMU branding -->
+  <rect x="320" y="10" width="70" height="15" fill="#990033"/>
+  <text x="325" y="21" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold">DMU</text>
+  
+  <!-- Send button -->
+  <rect x="20" y="160" width="40" height="15" fill="#0078d4" rx="2"/>
+  <text x="35" y="170" fill="white" font-family="Arial, sans-serif" font-size="8" text-anchor="middle">Send</text>
+</svg>

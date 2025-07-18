@@ -1,0 +1,356 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(0, 0%, 98%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(336, 100%, 20%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(0, 0%, 98%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(0, 0%, 98%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* DMU Brand Colors */
+  --dmu-primary: hsl(336, 100%, 20%);
+  --dmu-primary-light: hsl(336, 65%, 45%);
+  --dmu-primary-dark: hsl(336, 100%, 13%);
+  --dmu-secondary: hsl(210, 79%, 46%);
+  --dmu-surface: hsl(0, 0%, 98%);
+  --dmu-text: hsl(0, 0%, 20%);
+  --dmu-text-light: hsl(0, 0%, 40%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(336, 100%, 20%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  /* Skip link for accessibility */
+  .skip-link {
+    @apply absolute -top-10 left-2 z-50 px-4 py-2 text-white rounded;
+    background-color: var(--dmu-primary);
+    transition: top 0.3s;
+  }
+
+  /* Fade-in animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes cubeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px) rotateX(45deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) rotateX(0deg);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .animate-fade-in-right {
+    animation: fadeInRight 0.8s ease-out;
+  }
+
+  .animate-cube-slide-in {
+    animation: cubeSlideIn 1s ease-out;
+  }
+
+  /* 3D Cube Text Effect */
+  .cube-text-container {
+    perspective: 1000px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .cube-text {
+    display: flex;
+    gap: 4px;
+    transform-style: preserve-3d;
+    transform: rotateY(-20deg) rotateX(5deg);
+  }
+
+  .cube-char {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transition: transform 1.5s ease-in-out;
+  }
+
+  .cube-char:hover {
+    transform: rotateX(360deg);
+  }
+
+  .cube-face {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(45deg, #A3003A, #87002E);
+    backface-visibility: visible;
+  }
+
+  .cube-face:nth-child(1) {
+    transform: rotateX(0deg) translateZ(20px);
+  }
+
+  .cube-face:nth-child(2) {
+    transform: rotateX(90deg) translateZ(20px);
+    background: linear-gradient(45deg, #730027, #5F0020);
+  }
+
+  .cube-face:nth-child(3) {
+    transform: rotateX(180deg) translateZ(20px);
+    background: linear-gradient(45deg, #730027, #5F0020);
+  }
+
+  .cube-face:nth-child(4) {
+    transform: rotateX(270deg) translateZ(20px);
+    background: linear-gradient(45deg, #730027, #5F0020);
+  }
+
+  .cube-face:nth-child(5) {
+    transform: rotateY(90deg) translateZ(20px);
+    background: linear-gradient(45deg, #5F0020, #4A0018);
+  }
+
+  .cube-face:nth-child(6) {
+    transform: rotateY(-90deg) translateZ(20px);
+    background: linear-gradient(45deg, #5F0020, #4A0018);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .cube-char {
+      width: 24px;
+      height: 24px;
+    }
+
+    .cube-face {
+      width: 24px;
+      height: 24px;
+      font-size: 0.75em;
+    }
+
+    .cube-face:nth-child(1) {
+      transform: rotateX(0deg) translateZ(12px);
+    }
+
+    .cube-face:nth-child(2) {
+      transform: rotateX(90deg) translateZ(12px);
+    }
+
+    .cube-face:nth-child(3) {
+      transform: rotateX(180deg) translateZ(12px);
+    }
+
+    .cube-face:nth-child(4) {
+      transform: rotateX(270deg) translateZ(12px);
+    }
+
+    .cube-face:nth-child(5) {
+      transform: rotateY(90deg) translateZ(12px);
+    }
+
+    .cube-face:nth-child(6) {
+      transform: rotateY(-90deg) translateZ(12px);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cube-char {
+      width: 20px;
+      height: 20px;
+    }
+
+    .cube-face {
+      width: 20px;
+      height: 20px;
+      font-size: 0.6em;
+    }
+
+    .cube-face:nth-child(1) {
+      transform: rotateX(0deg) translateZ(10px);
+    }
+
+    .cube-face:nth-child(2) {
+      transform: rotateX(90deg) translateZ(10px);
+    }
+
+    .cube-face:nth-child(3) {
+      transform: rotateX(180deg) translateZ(10px);
+    }
+
+    .cube-face:nth-child(4) {
+      transform: rotateX(270deg) translateZ(10px);
+    }
+
+    .cube-face:nth-child(5) {
+      transform: rotateY(90deg) translateZ(10px);
+    }
+
+    .cube-face:nth-child(6) {
+      transform: rotateY(-90deg) translateZ(10px);
+    }
+  }
+
+  .skip-link:focus {
+    @apply top-2;
+  }
+
+  /* Custom animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  /* DMU Brand Button Styles */
+  .btn-primary {
+    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2;
+    background-color: var(--dmu-primary);
+    color: white;
+    border: 2px solid var(--dmu-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--dmu-primary-dark);
+    border-color: var(--dmu-primary-dark);
+  }
+
+  .btn-primary:focus {
+    ring-color: var(--dmu-secondary);
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2;
+    background-color: transparent;
+    color: var(--dmu-primary);
+    border: 2px solid var(--dmu-primary);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--dmu-primary);
+    color: white;
+  }
+
+  .btn-secondary:focus {
+    ring-color: var(--dmu-secondary);
+  }
+
+  /* Ensure proper contrast for accessibility */
+  .text-dmu-primary {
+    color: var(--dmu-primary);
+  }
+
+  .text-dmu-text {
+    color: var(--dmu-text);
+  }
+
+  .text-dmu-text-light {
+    color: var(--dmu-text-light);
+  }
+
+  .bg-dmu-primary {
+    background-color: var(--dmu-primary);
+  }
+
+  .bg-dmu-surface {
+    background-color: var(--dmu-surface);
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .text-dmu-text-light {
+      color: var(--dmu-text);
+    }
+  }
+
+  /* Keyboard navigation support */
+  .keyboard-navigation *:focus {
+    @apply outline-2 outline-offset-2;
+    outline-color: var(--dmu-secondary);
+  }
+}
