@@ -70,23 +70,23 @@ export default function Hero() {
             {/* Call-to-action button container */}
             <div className="flex flex-col sm:flex-row gap-3 lg:gap-6 items-center lg:items-start">
               
-              {/* Primary CTA button - navigates to services section */}
+              {/* Primary CTA button - navigates to BAL Portal */}
               <Button
                 size="lg"
                 className="bg-white text-[#990033] hover:bg-gray-100 font-semibold px-8 sm:px-6 lg:px-12 py-4 sm:py-3 lg:py-5 text-base sm:text-sm lg:text-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl w-full sm:w-auto min-h-[48px]"
-                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => window.location.href = '/bal-portal'}
               >
-                Get Started
+                Access BAL Portal
               </Button>
               
-              {/* Secondary CTA button - navigates to contact section */}
+              {/* Secondary CTA button - navigates to services section */}
               <Button
                 size="lg"
                 variant="outline"
                 className="bg-transparent border-2 border-white text-white px-8 sm:px-6 lg:px-12 py-4 sm:py-3 lg:py-5 text-base sm:text-sm lg:text-xl hover:bg-white hover:text-[#990033] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl font-semibold w-full sm:w-auto min-h-[48px]"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Contact Us
+                Learn More
               </Button>
             </div>
           </div>

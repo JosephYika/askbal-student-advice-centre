@@ -9,6 +9,7 @@ export default function Header() {
   const navigation = [
     { name: "Home", href: "#home" },
     { name: "Help", href: "#services" },
+    { name: "BAL Portal", href: "/bal-portal" },
     { name: "Contact", href: "#contact" },
     { name: "Resources", href: "#resources" },
   ];

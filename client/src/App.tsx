@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";             // Toast notifica
 import { TooltipProvider } from "@/components/ui/tooltip";     // Tooltip component provider
 import Home from "@/pages/home";                               // Main homepage component
 import ProgrammeFinder from "@/pages/programme-finder";        // School finder page component
+import BALPortal from "@/pages/bal-portal";                    // BAL Portal page component
 import NotFound from "@/pages/not-found";                      // 404 error page component
 
 /**
@@ -26,6 +27,9 @@ function Router() {
       
       {/* School finder route - helps students find their school contact */}
       <Route path="/programme-finder" component={ProgrammeFinder} />
+      
+      {/* BAL Portal route - comprehensive student services portal */}
+      <Route path="/bal-portal" component={BALPortal} />
       
       {/* Catch-all route for 404 errors - must be last */}
       <Route component={NotFound} />
