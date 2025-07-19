@@ -59,6 +59,7 @@ This is a React-based web application for the ASK BAL Student Advice Centre at D
 - ✅ **Simplified Cards**: Removed priority and external badges for cleaner, minimalist card design with just icons and titles
 - ✅ **Grid Layout Optimization**: Reverted to previous card design, increased card width, changed to 5 cards per row on desktop for better spacing
 - ✅ **SEO Optimization**: Changed "Module & Programme Leader Search" to "Find your Tutor" for better user clarity and SEO
+- ✅ **Hero Layout Improvement**: Moved search bar to hero section under description text, placed view toggles next to search for better UX
 
 ## User Preferences
 

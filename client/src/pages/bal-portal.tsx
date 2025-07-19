@@ -398,6 +398,50 @@ export default function BALPortal() {
           Your comprehensive hub for student services, academic support, and administrative processes. 
           Find everything you need to succeed in your studies at the Faculty of Business & Law.
         </p>
+
+        {/* Search Bar */}
+        <div className="mb-8">
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-center max-w-2xl mx-auto">
+            <div className="relative w-full md:w-96">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Input
+                type="text"
+                placeholder="Search services..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10 bg-white text-gray-900"
+              />
+            </div>
+            <div className="flex items-center space-x-2">
+              <Button 
+                variant="outline" 
+                onClick={() => {
+                  setSearchTerm('');
+                  setSelectedCategory('all');
+                }}
+                className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50"
+              >
+                Clear All
+              </Button>
+              <Button 
+                variant={viewMode === 'grid' ? 'default' : 'ghost'} 
+                size="sm"
+                onClick={() => setViewMode('grid')}
+                className={viewMode === 'grid' ? 'bg-white text-[#2B5F57]' : 'text-white hover:bg-white/10'}
+              >
+                <Grid className="h-4 w-4" />
+              </Button>
+              <Button 
+                variant={viewMode === 'list' ? 'default' : 'ghost'} 
+                size="sm"
+                onClick={() => setViewMode('list')}
+                className={viewMode === 'list' ? 'bg-white text-[#2B5F57]' : 'text-white hover:bg-white/10'}
+              >
+                <List className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </div>
         
         {/* Quick Category Buttons */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 max-w-5xl mx-auto">
@@ -479,49 +523,7 @@ export default function BALPortal() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
 
-        {/* Search and Filter Section */}
-        <div className="mb-8">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
-            <div className="relative w-full md:w-96">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-              <Input
-                type="text"
-                placeholder="Search services..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-            <div className="flex items-center space-x-2">
-              <Button 
-                variant="outline" 
-                onClick={() => {
-                  setSearchTerm('');
-                  setSelectedCategory('all');
-                }}
-                className="border-[#990033] text-[#990033] hover:bg-[#990033] hover:text-white"
-              >
-                Clear All
-              </Button>
-              <Button 
-                variant={viewMode === 'grid' ? 'default' : 'ghost'} 
-                size="sm"
-                onClick={() => setViewMode('grid')}
-                className={viewMode === 'grid' ? 'bg-[#990033] text-white' : 'text-gray-600'}
-              >
-                <Grid className="h-4 w-4" />
-              </Button>
-              <Button 
-                variant={viewMode === 'list' ? 'default' : 'ghost'} 
-                size="sm"
-                onClick={() => setViewMode('list')}
-                className={viewMode === 'list' ? 'bg-[#990033] text-white' : 'text-gray-600'}
-              >
-                <List className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-        </div>
+
 
         {/* Results Section */}
         <div>
