@@ -342,16 +342,21 @@ export default function BALPortal() {
     const IconComponent = tile.icon;
     
     return (
-      <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer bg-white border border-gray-200 hover:border-[#990033]/30 transform hover:scale-105 h-32 w-full">
-        <CardContent className="p-4 h-full flex flex-col items-center justify-center text-center">
-          <div className="mb-3">
-            <div className="p-2 rounded-lg bg-[#990033]/10 border border-[#990033]/20 inline-flex">
-              <IconComponent className="h-5 w-5 text-[#990033]" />
+      <Card className="group hover:shadow-xl transition-all duration-300 cursor-pointer bg-white border border-gray-200 hover:border-[#990033]/40 transform hover:scale-[1.02] aspect-square w-full overflow-hidden">
+        <CardContent className="p-0 h-full flex flex-col">
+          {/* Icon Section - Takes up most of the card */}
+          <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-[#990033]/5 to-[#2B5F57]/5 group-hover:from-[#990033]/10 group-hover:to-[#2B5F57]/10 transition-colors">
+            <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-white/60 group-hover:bg-white group-hover:scale-110 transition-all duration-300 shadow-sm">
+              <IconComponent className="h-8 w-8 text-[#990033] group-hover:text-[#2B5F57] transition-colors" />
             </div>
           </div>
-          <CardTitle className="text-sm font-semibold text-gray-900 group-hover:text-[#990033] transition-colors leading-tight">
-            {tile.title}
-          </CardTitle>
+          
+          {/* Title Section - Compact bottom strip */}
+          <div className="bg-white p-3 border-t border-gray-100">
+            <CardTitle className="text-xs font-semibold text-gray-800 group-hover:text-[#990033] transition-colors leading-tight text-center line-clamp-2">
+              {tile.title}
+            </CardTitle>
+          </div>
         </CardContent>
       </Card>
     );
