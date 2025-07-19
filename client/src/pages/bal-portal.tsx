@@ -352,16 +352,6 @@ export default function BALPortal() {
           <CardTitle className="text-sm font-semibold text-gray-900 group-hover:text-[#990033] transition-colors leading-tight">
             {tile.title}
           </CardTitle>
-          {tile.priority === 'high' && (
-            <Badge variant="secondary" className="bg-[#2B5F57] text-white text-xs mt-2">
-              Priority
-            </Badge>
-          )}
-          {tile.external && (
-            <Badge variant="outline" className="text-xs border-[#2B5F57] text-[#2B5F57] mt-1">
-              External
-            </Badge>
-          )}
         </CardContent>
       </Card>
     );

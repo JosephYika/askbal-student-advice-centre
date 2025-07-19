@@ -56,6 +56,7 @@ This is a React-based web application for the ASK BAL Student Advice Centre at D
 - ✅ **Card Redesign**: Smaller, centered cards with icons and titles only, removed descriptions for cleaner look
 - ✅ **Hero Section Refinement**: Separated burgundy and forest green sections instead of gradient for better color distinction
 - ✅ **School Finder-Style Hero**: Redesigned with sticky header, interactive category buttons, and professional layout matching programme finder design
+- ✅ **Simplified Cards**: Removed priority and external badges for cleaner, minimalist card design with just icons and titles
 
 ## User Preferences
 
