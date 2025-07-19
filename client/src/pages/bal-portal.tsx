@@ -423,11 +423,71 @@ export default function BALPortal() {
               >
                 Clear All
               </Button>
+              
+              {/* Category Filter Icons */}
+              <Button 
+                variant={selectedCategory === 'all' ? 'default' : 'ghost'} 
+                size="sm"
+                onClick={() => setSelectedCategory('all')}
+                className={selectedCategory === 'all' ? 'bg-white text-[#2B5F57]' : 'text-white hover:bg-white/10'}
+                title="All Services"
+              >
+                <Filter className="h-4 w-4" />
+              </Button>
+              <Button 
+                variant={selectedCategory === 'academic' ? 'default' : 'ghost'} 
+                size="sm"
+                onClick={() => setSelectedCategory('academic')}
+                className={selectedCategory === 'academic' ? 'bg-white text-[#2B5F57]' : 'text-white hover:bg-white/10'}
+                title="Academic Support"
+              >
+                <BookOpen className="h-4 w-4" />
+              </Button>
+              <Button 
+                variant={selectedCategory === 'support' ? 'default' : 'ghost'} 
+                size="sm"
+                onClick={() => setSelectedCategory('support')}
+                className={selectedCategory === 'support' ? 'bg-white text-[#2B5F57]' : 'text-white hover:bg-white/10'}
+                title="Support Services"
+              >
+                <Users className="h-4 w-4" />
+              </Button>
+              <Button 
+                variant={selectedCategory === 'finance' ? 'default' : 'ghost'} 
+                size="sm"
+                onClick={() => setSelectedCategory('finance')}
+                className={selectedCategory === 'finance' ? 'bg-white text-[#2B5F57]' : 'text-white hover:bg-white/10'}
+                title="Finance & Funding"
+              >
+                <CreditCard className="h-4 w-4" />
+              </Button>
+              <Button 
+                variant={selectedCategory === 'student-life' ? 'default' : 'ghost'} 
+                size="sm"
+                onClick={() => setSelectedCategory('student-life')}
+                className={selectedCategory === 'student-life' ? 'bg-white text-[#2B5F57]' : 'text-white hover:bg-white/10'}
+                title="Student Life"
+              >
+                <Heart className="h-4 w-4" />
+              </Button>
+              <Button 
+                variant={selectedCategory === 'admin' ? 'default' : 'ghost'} 
+                size="sm"
+                onClick={() => setSelectedCategory('admin')}
+                className={selectedCategory === 'admin' ? 'bg-white text-[#2B5F57]' : 'text-white hover:bg-white/10'}
+                title="Admin Services"
+              >
+                <FileText className="h-4 w-4" />
+              </Button>
+              
+              {/* View Mode Toggles */}
+              <div className="h-6 w-px bg-white/30 mx-2"></div>
               <Button 
                 variant={viewMode === 'grid' ? 'default' : 'ghost'} 
                 size="sm"
                 onClick={() => setViewMode('grid')}
                 className={viewMode === 'grid' ? 'bg-white text-[#2B5F57]' : 'text-white hover:bg-white/10'}
+                title="Grid View"
               >
                 <Grid className="h-4 w-4" />
               </Button>
@@ -436,6 +496,7 @@ export default function BALPortal() {
                 size="sm"
                 onClick={() => setViewMode('list')}
                 className={viewMode === 'list' ? 'bg-white text-[#2B5F57]' : 'text-white hover:bg-white/10'}
+                title="List View"
               >
                 <List className="h-4 w-4" />
               </Button>
@@ -443,78 +504,7 @@ export default function BALPortal() {
           </div>
         </div>
         
-        {/* Quick Category Buttons */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 max-w-5xl mx-auto">
-          <Button
-            variant="outline"
-            className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 p-6 h-auto text-center transition-all duration-300 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2B5F57]"
-            onClick={() => setSelectedCategory('academic')}
-          >
-            <div className="flex flex-col items-center space-y-2">
-              <BookOpen className="h-6 w-6 text-white" />
-              <div>
-                <h3 className="font-semibold text-white text-sm">Academic</h3>
-                <p className="text-xs text-white/70 mt-1">Support</p>
-              </div>
-            </div>
-          </Button>
-          
-          <Button
-            variant="outline"
-            className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 p-6 h-auto text-center transition-all duration-300 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2B5F57]"
-            onClick={() => setSelectedCategory('support')}
-          >
-            <div className="flex flex-col items-center space-y-2">
-              <Users className="h-6 w-6 text-white" />
-              <div>
-                <h3 className="font-semibold text-white text-sm">Support</h3>
-                <p className="text-xs text-white/70 mt-1">Services</p>
-              </div>
-            </div>
-          </Button>
-          
-          <Button
-            variant="outline"
-            className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 p-6 h-auto text-center transition-all duration-300 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2B5F57]"
-            onClick={() => setSelectedCategory('finance')}
-          >
-            <div className="flex flex-col items-center space-y-2">
-              <CreditCard className="h-6 w-6 text-white" />
-              <div>
-                <h3 className="font-semibold text-white text-sm">Finance</h3>
-                <p className="text-xs text-white/70 mt-1">& Funding</p>
-              </div>
-            </div>
-          </Button>
-          
-          <Button
-            variant="outline"
-            className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 p-6 h-auto text-center transition-all duration-300 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2B5F57]"
-            onClick={() => setSelectedCategory('student-life')}
-          >
-            <div className="flex flex-col items-center space-y-2">
-              <Heart className="h-6 w-6 text-white" />
-              <div>
-                <h3 className="font-semibold text-white text-sm">Student</h3>
-                <p className="text-xs text-white/70 mt-1">Life</p>
-              </div>
-            </div>
-          </Button>
-          
-          <Button
-            variant="outline"
-            className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 p-6 h-auto text-center transition-all duration-300 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2B5F57]"
-            onClick={() => setSelectedCategory('admin')}
-          >
-            <div className="flex flex-col items-center space-y-2">
-              <FileText className="h-6 w-6 text-white" />
-              <div>
-                <h3 className="font-semibold text-white text-sm">Admin</h3>
-                <p className="text-xs text-white/70 mt-1">Services</p>
-              </div>
-            </div>
-          </Button>
-        </div>
+
       </div>
 
 
