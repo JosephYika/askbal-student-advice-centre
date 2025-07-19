@@ -38,6 +38,22 @@ This is a React-based web application for the ASK BAL Student Advice Centre at D
 
 ## Recent Changes: Latest modifications with dates
 
+### January 19, 2025 - BAL Portal UI/UX Optimization Session
+- ✅ **Service Title Enhancement**: Updated "Module & Programme Leader Search" to "Find your Tutor" for better student-focused language and SEO optimization
+- ✅ **Hero Section Layout Restructure**: 
+  - Moved search bar to prominent position directly under description text
+  - Replaced large category cards with compact icon-based filter buttons
+  - Integrated view mode toggles (Grid/List) alongside filter controls
+- ✅ **Search Interface Improvements**:
+  - Expanded search bar width for better visibility and usability  
+  - Updated placeholder text to "How to change my module...?" for more intuitive user guidance
+  - Organized filters into small labeled boxes with icons (All, Academic, Support, Finance, Student Life, Admin)
+- ✅ **Filter System Optimization**:
+  - Implemented clear visual grouping: Clear All → Category Filters → View Toggles
+  - Added visual separator between filter groups for better organization
+  - Maintained professional styling with semi-transparent backgrounds and DMU brand colors
+- ✅ **Card Design Consistency**: Reverted to clean, uniform card design with fixed height, centered layout, and professional styling per user preference
+
 ### July 18, 2025
 - ✅ **Completed School Finder Page**: Full implementation with 30 programmes across 3 schools
 - ✅ **Applied DMU Brand Colors**: Consistent #820628 burgundy and #2B5F57 forest green
@@ -62,7 +78,7 @@ This is a React-based web application for the ASK BAL Student Advice Centre at D
 - ✅ **Hero Layout Improvement**: Moved search bar to hero section under description text, placed view toggles next to search for better UX
 - ✅ **Compact Filter Design**: Replaced large category cards with small icon buttons next to view toggles for cleaner, more compact interface
 - ✅ **Enhanced Search Layout**: Made search bar wider and moved filters to small boxes below with short descriptions in organized layout
-- ✅ **Card Design Reverted**: Returned to previous clean card design with fixed height and centered layout per user preference
+
 
 ## User Preferences
 
