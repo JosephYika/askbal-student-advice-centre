@@ -76,7 +76,7 @@ export default function Hero() {
                 className="bg-white text-[#990033] hover:bg-gray-100 font-semibold px-8 sm:px-6 lg:px-12 py-4 sm:py-3 lg:py-5 text-base sm:text-sm lg:text-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl w-full sm:w-auto min-h-[48px]"
                 onClick={() => window.location.href = '/bal-portal'}
               >
-                Access BAL Portal
+                Get Started
               </Button>
               
               {/* Secondary CTA button - navigates to services section */}
@@ -84,9 +84,9 @@ export default function Hero() {
                 size="lg"
                 variant="outline"
                 className="bg-transparent border-2 border-white text-white px-8 sm:px-6 lg:px-12 py-4 sm:py-3 lg:py-5 text-base sm:text-sm lg:text-xl hover:bg-white hover:text-[#990033] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl font-semibold w-full sm:w-auto min-h-[48px]"
-                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Learn More
+                Contact Us
               </Button>
             </div>
           </div>
