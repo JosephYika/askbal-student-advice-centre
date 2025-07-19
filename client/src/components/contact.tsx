@@ -109,15 +109,6 @@ export default function Contact() {
             <h3 className="text-2xl font-semibold text-dmu-text mb-6 text-center">
               School Contacts
             </h3>
-            <p className="text-center text-dmu-text-light mb-6">
-              Unsure who to contact?{" "}
-              <a
-                href="/programme-finder"
-                className="text-[#990033] hover:text-[#660022] underline transition-colors duration-200"
-              >
-                Check which school your programme belongs to.
-              </a>
-            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:grid-rows-[auto_1fr]">
               {schoolContacts.map((school, index) => (
                 <div key={index} className="text-center flex flex-col">
@@ -147,6 +138,15 @@ export default function Contact() {
                 </div>
               ))}
             </div>
+            <p className="text-center text-dmu-text-light mt-6">
+              Unsure who to contact?{" "}
+              <a
+                href="/programme-finder"
+                className="text-[#990033] hover:text-[#660022] underline transition-colors duration-200"
+              >
+                Check which school your programme belongs to.
+              </a>
+            </p>
           </CardContent>
         </Card>
 
