@@ -343,17 +343,15 @@ export default function BALPortal() {
     
     return (
       <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer bg-white border border-gray-200 hover:border-[#990033]/30 transform hover:scale-105 h-32 w-full">
-        <CardContent className="p-3 h-full flex flex-col items-center justify-center text-center">
-          <div className="flex items-center justify-center mb-2">
-            <div className="p-2 rounded-lg bg-[#990033]/10 border border-[#990033]/20 flex items-center justify-center w-10 h-10">
-              <IconComponent className="h-5 w-5 text-[#990033] flex-shrink-0" />
+        <CardContent className="p-4 h-full flex flex-col items-center justify-center text-center">
+          <div className="mb-3">
+            <div className="p-2 rounded-lg bg-[#990033]/10 border border-[#990033]/20 inline-flex">
+              <IconComponent className="h-5 w-5 text-[#990033]" />
             </div>
           </div>
-          <div className="flex items-center justify-center h-8">
-            <CardTitle className="text-xs font-semibold text-gray-900 group-hover:text-[#990033] transition-colors leading-tight text-center px-1">
-              {tile.title}
-            </CardTitle>
-          </div>
+          <CardTitle className="text-sm font-semibold text-gray-900 group-hover:text-[#990033] transition-colors leading-tight">
+            {tile.title}
+          </CardTitle>
         </CardContent>
       </Card>
     );
@@ -540,8 +538,8 @@ export default function BALPortal() {
 
           <div className="mt-8">
             {viewMode === 'grid' ? (
-              <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              <div className="max-w-7xl mx-auto">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                   {filteredTiles.map(tile => (
                     <div key={tile.id} className="transform hover:scale-105 transition-transform">
                       <TileCard tile={tile} />
