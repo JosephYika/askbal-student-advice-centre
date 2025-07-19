@@ -61,6 +61,7 @@ This is a React-based web application for the ASK BAL Student Advice Centre at D
 - ✅ **SEO Optimization**: Changed "Module & Programme Leader Search" to "Find your Tutor" for better user clarity and SEO
 - ✅ **Hero Layout Improvement**: Moved search bar to hero section under description text, placed view toggles next to search for better UX
 - ✅ **Compact Filter Design**: Replaced large category cards with small icon buttons next to view toggles for cleaner, more compact interface
+- ✅ **Enhanced Search Layout**: Made search bar wider and moved filters to small boxes below with short descriptions in organized layout
 
 ## User Preferences
 

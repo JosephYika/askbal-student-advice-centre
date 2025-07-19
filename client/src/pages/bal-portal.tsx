@@ -400,18 +400,78 @@ export default function BALPortal() {
         </p>
 
         {/* Search Bar */}
-        <div className="mb-8">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-center max-w-2xl mx-auto">
-            <div className="relative w-full md:w-96">
+        <div className="mb-6">
+          <div className="flex flex-col items-center justify-center max-w-4xl mx-auto">
+            <div className="relative w-full max-w-2xl mb-4">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
               <Input
                 type="text"
                 placeholder="Search services..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 bg-white text-gray-900"
+                className="pl-10 bg-white text-gray-900 h-12 text-lg"
               />
             </div>
+            
+            {/* Filter Categories */}
+            <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
+              <Button 
+                variant={selectedCategory === 'all' ? 'default' : 'ghost'} 
+                size="sm"
+                onClick={() => setSelectedCategory('all')}
+                className={selectedCategory === 'all' ? 'bg-white text-[#2B5F57]' : 'bg-white/10 border-white/30 text-white hover:bg-white/20'}
+              >
+                <Filter className="h-3 w-3 mr-1" />
+                All
+              </Button>
+              <Button 
+                variant={selectedCategory === 'academic' ? 'default' : 'ghost'} 
+                size="sm"
+                onClick={() => setSelectedCategory('academic')}
+                className={selectedCategory === 'academic' ? 'bg-white text-[#2B5F57]' : 'bg-white/10 border-white/30 text-white hover:bg-white/20'}
+              >
+                <BookOpen className="h-3 w-3 mr-1" />
+                Academic
+              </Button>
+              <Button 
+                variant={selectedCategory === 'support' ? 'default' : 'ghost'} 
+                size="sm"
+                onClick={() => setSelectedCategory('support')}
+                className={selectedCategory === 'support' ? 'bg-white text-[#2B5F57]' : 'bg-white/10 border-white/30 text-white hover:bg-white/20'}
+              >
+                <Users className="h-3 w-3 mr-1" />
+                Support
+              </Button>
+              <Button 
+                variant={selectedCategory === 'finance' ? 'default' : 'ghost'} 
+                size="sm"
+                onClick={() => setSelectedCategory('finance')}
+                className={selectedCategory === 'finance' ? 'bg-white text-[#2B5F57]' : 'bg-white/10 border-white/30 text-white hover:bg-white/20'}
+              >
+                <CreditCard className="h-3 w-3 mr-1" />
+                Finance
+              </Button>
+              <Button 
+                variant={selectedCategory === 'student-life' ? 'default' : 'ghost'} 
+                size="sm"
+                onClick={() => setSelectedCategory('student-life')}
+                className={selectedCategory === 'student-life' ? 'bg-white text-[#2B5F57]' : 'bg-white/10 border-white/30 text-white hover:bg-white/20'}
+              >
+                <Heart className="h-3 w-3 mr-1" />
+                Student Life
+              </Button>
+              <Button 
+                variant={selectedCategory === 'admin' ? 'default' : 'ghost'} 
+                size="sm"
+                onClick={() => setSelectedCategory('admin')}
+                className={selectedCategory === 'admin' ? 'bg-white text-[#2B5F57]' : 'bg-white/10 border-white/30 text-white hover:bg-white/20'}
+              >
+                <FileText className="h-3 w-3 mr-1" />
+                Admin
+              </Button>
+            </div>
+
+            {/* Controls */}
             <div className="flex items-center space-x-2">
               <Button 
                 variant="outline" 
@@ -423,64 +483,6 @@ export default function BALPortal() {
               >
                 Clear All
               </Button>
-              
-              {/* Category Filter Icons */}
-              <Button 
-                variant={selectedCategory === 'all' ? 'default' : 'ghost'} 
-                size="sm"
-                onClick={() => setSelectedCategory('all')}
-                className={selectedCategory === 'all' ? 'bg-white text-[#2B5F57]' : 'text-white hover:bg-white/10'}
-                title="All Services"
-              >
-                <Filter className="h-4 w-4" />
-              </Button>
-              <Button 
-                variant={selectedCategory === 'academic' ? 'default' : 'ghost'} 
-                size="sm"
-                onClick={() => setSelectedCategory('academic')}
-                className={selectedCategory === 'academic' ? 'bg-white text-[#2B5F57]' : 'text-white hover:bg-white/10'}
-                title="Academic Support"
-              >
-                <BookOpen className="h-4 w-4" />
-              </Button>
-              <Button 
-                variant={selectedCategory === 'support' ? 'default' : 'ghost'} 
-                size="sm"
-                onClick={() => setSelectedCategory('support')}
-                className={selectedCategory === 'support' ? 'bg-white text-[#2B5F57]' : 'text-white hover:bg-white/10'}
-                title="Support Services"
-              >
-                <Users className="h-4 w-4" />
-              </Button>
-              <Button 
-                variant={selectedCategory === 'finance' ? 'default' : 'ghost'} 
-                size="sm"
-                onClick={() => setSelectedCategory('finance')}
-                className={selectedCategory === 'finance' ? 'bg-white text-[#2B5F57]' : 'text-white hover:bg-white/10'}
-                title="Finance & Funding"
-              >
-                <CreditCard className="h-4 w-4" />
-              </Button>
-              <Button 
-                variant={selectedCategory === 'student-life' ? 'default' : 'ghost'} 
-                size="sm"
-                onClick={() => setSelectedCategory('student-life')}
-                className={selectedCategory === 'student-life' ? 'bg-white text-[#2B5F57]' : 'text-white hover:bg-white/10'}
-                title="Student Life"
-              >
-                <Heart className="h-4 w-4" />
-              </Button>
-              <Button 
-                variant={selectedCategory === 'admin' ? 'default' : 'ghost'} 
-                size="sm"
-                onClick={() => setSelectedCategory('admin')}
-                className={selectedCategory === 'admin' ? 'bg-white text-[#2B5F57]' : 'text-white hover:bg-white/10'}
-                title="Admin Services"
-              >
-                <FileText className="h-4 w-4" />
-              </Button>
-              
-              {/* View Mode Toggles */}
               <div className="h-6 w-px bg-white/30 mx-2"></div>
               <Button 
                 variant={viewMode === 'grid' ? 'default' : 'ghost'} 
