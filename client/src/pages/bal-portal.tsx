@@ -76,7 +76,7 @@ const portalTiles: PortalTile[] = [
   },
   {
     id: 'module-programme-search',
-    title: 'Staff Directory',
+    title: 'Find your Tutor',
     description: 'Find contact details for academic staff',
     icon: Search,
     category: 'academic',
