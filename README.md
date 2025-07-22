@@ -39,6 +39,7 @@ This is a React-based web application for the ASK BAL Student Advice Centre at D
 ## Recent Changes: Latest modifications with dates
 
 ### January 19, 2025 - BAL Portal UI/UX Optimization Session
+- ✅ **Portal Title Update**: Changed "Student Services Hub" to "Business and Law Portal" for better brand alignment
 - ✅ **Service Title Enhancement**: Updated "Module & Programme Leader Search" to "Find your Tutor" for better student-focused language and SEO optimization
 - ✅ **Hero Section Layout Restructure**: 
   - Moved search bar to prominent position directly under description text

@@ -392,7 +392,7 @@ export default function BALPortal() {
       {/* Main Hero Section */}
       <div className="bg-[#2B5F57] rounded-2xl mx-4 sm:mx-6 lg:mx-8 mt-8 p-8 text-center">
         <h2 className="text-3xl font-bold text-white mb-6">
-          Student Services Hub
+          Business and Law Portal
         </h2>
         <p className="text-lg text-gray-100 max-w-3xl mx-auto leading-relaxed mb-8">
           Your comprehensive hub for student services, academic support, and administrative processes. 
